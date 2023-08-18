@@ -54,7 +54,7 @@ def seed_chats():
     users = session.query(User).all()
     for user in users:
         for _ in range(5):
-            chat = Chat(user_id=user.id)
+            chat = Chat(user_id=user.id, description=fake.paragraph(nb_sentences=2)[0:15] + "...")
             session.add(chat)
             session.commit()
             for _ in range(4):

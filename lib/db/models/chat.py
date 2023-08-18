@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 from .base import Base
 from .session import session
@@ -8,6 +8,7 @@ class Chat(Base):
     
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
+    description = Column(String)
     
     questions = relationship("Question", backref="chat")
     responses = relationship("Response", backref="chat")

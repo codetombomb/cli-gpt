@@ -84,7 +84,6 @@ class Cli():
         user_question_input = input("Send a message:\n\n")
         question = Question.create(text=user_question_input, chat_id=self.current_chat.id)
         ai_response = controller.ask_question(question.text)
-        print(ai_response)
         response = Response.create(text=ai_response["choices"][0]["message"]["content"], chat_id=self.current_chat.id)
         
         print(color(response.text).rgb_bg(68,70,84))
@@ -93,6 +92,9 @@ class Cli():
         if selection == "Yes":
             self.send_a_message()
         else:
+            self.current_chat.description = self.current_chat.questions[0].text[0:15] + "..."
+            self.current_chat.save()
+            self.current_chat = None
             self.main_menu()
         
     
