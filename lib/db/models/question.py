@@ -7,4 +7,4 @@ class Question(Base):
     id = Column(Integer, primary_key=True)
     text = Column(String)
     
-    chat_id = Column(Integer, ForeignKey("chat.id"))
+    chat_id = Column(Integer, ForeignKey("chats.id"))

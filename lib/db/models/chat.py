@@ -8,5 +8,5 @@ class Chat(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
     
-    # questions = relationship("Question", backref="chat")
-    # responses = relationship("Response", backref="chat")
+    questions = relationship("Question", backref="chat")
+    responses = relationship("Response", backref="chat")
