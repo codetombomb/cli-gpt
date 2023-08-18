@@ -1,3 +1,4 @@
 lib/db/*.db
 lib/models/migrations/db/__pycache__
 .vscode
+.env
