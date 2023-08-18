@@ -8,3 +8,9 @@ class Response(Base):
     text = Column(String) 
 
     chat_id = Column(Integer, ForeignKey("chats.id"))
+    
+    def __repr__(self):
+        return "\n<Response "\
+            + f"id={self.id}, "\
+            + f"text={self.text}, "\
+            ">\n"

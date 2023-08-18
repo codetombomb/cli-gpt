@@ -10,3 +10,11 @@ class Chat(Base):
     
     questions = relationship("Question", backref="chat")
     responses = relationship("Response", backref="chat")
+    
+    
+    def __repr__(self):
+        return "\n<Chat "\
+            + f"id={self.id}, "\
+            + f"user_id={self.user_id}, "\
+            ">\n"
+                

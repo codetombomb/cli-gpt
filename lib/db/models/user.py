@@ -10,3 +10,12 @@ class User(Base):
     password = Column(String(55)) 
     
     chats = relationship("Chat", backref="user")
+    
+    def __repr__(self):
+        return  "\n<User "\
+        + f"id={self.id}, "\
+        + f"username={self.username}, "\
+        + f"password={self.password}"\
+        ">\n"
+       
+        
