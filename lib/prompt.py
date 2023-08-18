@@ -14,10 +14,15 @@ class Prompt():
         print(f"You entered {green(input)}\nAre you sure?\n")
         return self.yes_no() == "Yes"
         
-    def yes_no(self):
-        return self.make_menu(["Yes", "No"])
+    def yes_no(self, option=None):
+        options = ["Yes", "No"]
+        if option:
+            options.append(option)
+        return self.make_menu(options)
         
-    def make_menu(self, options):
+    def make_menu(self, options, option=None):
+        if option:
+            options.append(option)
         menu = TerminalMenu(options)
         selection = menu.show()
         return options[selection]

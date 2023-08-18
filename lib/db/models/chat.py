@@ -19,9 +19,19 @@ class Chat(Base):
         new_chat.save()
         return new_chat
     
+    @classmethod
+    def all_descriptions_for(cls, user_id):
+        return ["💬 " + str(desc[0])for desc in session.query(cls.description).filter(cls.user_id == user_id).all()]
+    
+    @classmethod
+    def find_by(cls, **kwargs):
+        return session.query(cls).filter_by(**kwargs).first()
+    
     def save(self):
         session.add(self)
         session.commit()
+    
+        
     
     def __repr__(self):
         return "\n<Chat "\

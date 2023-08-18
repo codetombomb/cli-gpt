@@ -20,13 +20,15 @@ class Cli():
         banners.welcome()
         self.clear(4)
         
-        self.welcome()
+        return self.welcome()
         
     def welcome(self):
         print("Are you new here?")
-        selection = prompt.yes_no()
+        selection = prompt.yes_no(option="Exit")
         if selection == "Yes":
             self.sign_up()
+        elif selection == "Exit":
+            self.exit()
         else:
             self.login()
             
@@ -55,10 +57,10 @@ class Cli():
             password = self.collect_data("What is your password?")
             if user.password == password:
                 self.current_user = user
-                self.main_menu()
+                return self.main_menu()
             else:
                 print(red("That username or password was incorrect. Please try again."))
-                self.welcome()
+                return self.welcome()
                 
 
     def main_menu(self):
@@ -66,16 +68,41 @@ class Cli():
         banners.welcome()
         print(yellow(f"Hello, {self.current_user.username}! 👋"))
         print("Please make a selection:\n")
-        selection = prompt.make_menu(["My Chats", "Send a message", "Logout"])
-        if selection == "My Chats":
-            self.render_my_chats()
-        elif selection == "Send a message":
-            self.send_a_message()
+        selection = prompt.make_menu(["Saved Chats", "New Chat", "Logout"])
+        if selection == "Saved Chats":
+            return self.render_my_chats()
+        elif selection == "New Chat":
+            return self.send_a_message()
         else:
-            self.logout()
+            return self.logout()
 
     def render_my_chats(self):
-       pass
+        if len(self.current_user.chats) == 0:
+            print(yellow("You don't have any saved chats.\n"))
+            time.sleep(2)
+            return self.main_menu()
+        else:
+            self.set_current_chat()
+            if self.current_chat:
+                self.render_chat_conversation()
+                return self.send_a_message()
+    
+    def render_chat_conversation(self):
+        questions = self.current_chat.questions
+        responses = self.current_chat.responses
+        for index in range(len(questions)):
+            print(questions[index].text)
+            print(color(responses[index].text).rgb_bg(68,70,84))
+        return
+        
+    def set_current_chat(self):
+        print("Please select a chat:\n")
+        options = Chat.all_descriptions_for(self.current_user.id)
+        selection = prompt.make_menu(options, option="Back")
+        if selection == "Back":
+            return self.main_menu()
+        self.current_chat = Chat.find_by(description=selection[2:])
+        return 
             
     def send_a_message(self):
         self.clear(3)
@@ -86,21 +113,27 @@ class Cli():
         ai_response = controller.ask_question(question.text)
         response = Response.create(text=ai_response["choices"][0]["message"]["content"], chat_id=self.current_chat.id)
         
+        self.clear(2)
         print(color(response.text).rgb_bg(68,70,84))
-        print("Continue chat?")
+        print("Continue chat?\n")
         selection = prompt.yes_no()
         if selection == "Yes":
-            self.send_a_message()
+            return self.send_a_message()
         else:
             self.current_chat.description = self.current_chat.questions[0].text[0:15] + "..."
             self.current_chat.save()
             self.current_chat = None
-            self.main_menu()
+            return self.main_menu()
         
     
     
     
     def logout(self):
+        print(color(f"Goodbye, {self.current_user.username}! 👋").rgb_bg(26,195,125))
+        self.current_chat = None
+        self.current_user = None
+    
+    def exit(self):
         pass
             
         
