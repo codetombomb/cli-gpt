@@ -36,6 +36,10 @@ def make_profile():
 
 
 def seed_users():
+    tom =  User(username="tombomb", password="tombomb")
+    session.add(tom)
+    session.commit()
+    
     for _ in range(30):
         profile = make_profile()
         user = User(
@@ -49,15 +53,16 @@ def seed_users():
 def seed_chats():
     users = session.query(User).all()
     for user in users:
-        chat = Chat(user_id=user.id)
-        session.add(chat)
-        session.commit()
-        for _ in range(4):
-            question = Question(text=fake.paragraph(nb_sentences=5), chat_id=chat.id)
-            response = Response(text=fake.paragraph(nb_sentences=10), chat_id=chat.id)
-            session.add(question)
-            session.add(response)
+        for _ in range(5):
+            chat = Chat(user_id=user.id)
+            session.add(chat)
             session.commit()
+            for _ in range(4):
+                question = Question(text=fake.paragraph(nb_sentences=5), chat_id=chat.id)
+                response = Response(text=fake.paragraph(nb_sentences=10), chat_id=chat.id)
+                session.add(question)
+                session.add(response)
+                session.commit()
 
 seed_users()
 seed_chats()

@@ -30,8 +30,8 @@ class Controller:
             }
         )
         
-        print(resp.json())
+        return resp.json()
 
 
-controller = Controller()
-controller.ask_question("Give me a list of 5 fun things to code as a beginner python programmer")
+# controller = Controller()
+# controller.ask_question("Give me a list of 5 fun things to code as a beginner python programmer")

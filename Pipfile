@@ -12,6 +12,7 @@ simple-term-menu = "*"
 openai = "*"
 python-decouple = "*"
 requests = "*"
+prettycli = "*"
 
 [dev-packages]
 
