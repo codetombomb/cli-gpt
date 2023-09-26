@@ -38,7 +38,7 @@ class Cli():
             print(red("That username is taken! Please try again."))
             self.sign_up()
         else:
-            password = self.collect_data("What is your password?")
+            password = self.collect_data("What is your password?", isPassword=True)
             self.current_user = User.create(username=username, password=password)
         
         if self.current_user:
@@ -47,14 +47,14 @@ class Cli():
             print("Please try again.\n")
             self.welcome()
     
-    def collect_data(self, question):
-        return prompt.ask(question)
+    def collect_data(self, question, isPassword=False):
+        return prompt.ask(question, isPassword)
         
     def login(self):
         username = self.collect_data("What is your username?")
         if User.find_by(username=username):
             user = User.find_by(username=username)
-            password = self.collect_data("What is your password?")
+            password = self.collect_data("What is your password?", isPassword=True)
             if user.password == password:
                 self.current_user = user
                 return self.main_menu()
