@@ -31,7 +31,3 @@ class Controller:
         )
         
         return resp.json()
-
-
-# controller = Controller()
-# controller.ask_question("Give me a list of 5 fun things to code as a beginner python programmer")
