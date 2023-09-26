@@ -3,18 +3,14 @@ from models import (
     Chat,
     Question,
     Response,
-)  # You will need to import your own models
+)
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
 engine = create_engine("sqlite:///cli-gpt.db")
 Session = sessionmaker(bind=engine)
-session = Session()  # Query the DB with session example: session.query(ModelOne).all()
+session = Session()
 
-# Use ipdb to interact with DB using session
-# import ipdb; ipdb.set_trace() # # Dont forget to add ipdb as a dependency - pipenv install ipdb
-
-# For generating Fake data: https://faker.readthedocs.io/en/master/providers.html
 from faker import Faker
 
 fake = Faker()
@@ -23,6 +19,8 @@ session.query(User).delete()
 session.query(Chat).delete()
 session.query(Question).delete()
 session.query(Response).delete()
+
+session.commit()
 
 
 def make_profile():
@@ -64,16 +62,7 @@ def seed_chats():
                 session.add(response)
                 session.commit()
 
-seed_users()
-seed_chats()
+# seed_users()
+# seed_chats()
 
-import ipdb; ipdb.set_trace()
-
-
-# # For working with an API and retrieving json data
-# import requests
-# import json
-
-# # Example request
-# response = requests.get(API_URL)
-# json_data = json.loads(response.text)
+# import ipdb; ipdb.set_trace()

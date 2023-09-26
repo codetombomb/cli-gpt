@@ -13,6 +13,7 @@ openai = "*"
 python-decouple = "*"
 requests = "*"
 prettycli = "*"
+pwinput = "*"
 
 [dev-packages]
 
