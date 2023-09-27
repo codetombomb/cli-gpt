@@ -4,6 +4,7 @@ from banners import Banner
 from prompt import Prompt
 from prettycli import yellow, red, color
 import time
+import asyncio
 
 controller = Controller()
 banners = Banner()
@@ -26,11 +27,11 @@ class Cli():
         print("Are you new here?")
         selection = prompt.yes_no(option="Exit")
         if selection == "Yes":
-            self.sign_up()
+            return self.sign_up()
         elif selection == "Exit":
-            self.exit()
+            return self.exit()
         else:
-            self.login()
+            return self.login()
             
     def sign_up(self):
         username = self.collect_data("What is your username?")
@@ -110,8 +111,8 @@ class Cli():
             self.current_chat = Chat.create(user_id=self.current_user.id)
         user_question_input = input("Send a message:\n\n")
         question = Question.create(text=user_question_input, chat_id=self.current_chat.id)
-        ai_response = controller.ask_question(question.text)
-        response = Response.create(text=ai_response["choices"][0]["message"]["content"], chat_id=self.current_chat.id)
+        ai_response = asyncio.run(controller.ask_question(question.text))
+        response = Response.create(text=ai_response['data'], chat_id=self.current_chat.id)
         
         self.clear(2)
         print(color(response.text).rgb_bg(68,70,84))
