@@ -18,9 +18,9 @@ https://github.com/codetombomb/cli-gpt/assets/56778984/52e7a8c6-42d0-4795-8f45-e
 
 ## Introduction
 
-PyCli-GPT is a Python CLI application designed to provide helpful information, answer questions, and assist users with various tasks using the power of OpenAI's GPT (Generative Pre-trained Transformer) technology. Whether you need information, creative ideas, or assistance with specific tasks, PyCli-GPT is here to help, all within the familiar confines of your terminal.
+PyCli-GPT is a Python CLI works like [Chat-GPT](https://chat.openai.com) and is an application that provides helpful information, answer questions, and assist users with various tasks using the power of OpenAI's GPT (Generative Pre-trained Transformer) technology. Whether you need information, creative ideas, or assistance with specific tasks, PyCli-GPT is here to help, all within the familiar confines of your terminal.
 
-#### Inspiration
+#### About
 PyCli-GPT was created as a demonstration project for Software Engineering students at Flatiron School. It serves as a showcase of various software engineering and Python programming concepts, including the separation of concerns, Object Relational Mappers, entity relationships, database evolution with migrations, database population using seed data, and database constraints using SQLAlchemy and Alembic. This project was also geared toward showcasing fun PyPi packages like: 
 
 - [prettycli](https://github.com/noyoshi/prettycli#-prettycli-)
@@ -30,16 +30,7 @@ PyCli-GPT was created as a demonstration project for Software Engineering studen
 - [progress](https://github.com/verigak/progress/#easy-progress-reporting-for-python)
 - [openai](https://platform.openai.com/docs/api-reference). 
 
-#### Who Can Benefit
-PyCli-GPT is designed with Python programming learners and software engineering enthusiasts in mind. If you're on a journey to master Python or software engineering in general, this tool can be a valuable addition to your learning resources. Just dig through the code and reach out with any questions! 
-
-#### How It Works
-This CLI application interacts with the OpenAI API, offering an experience similar to chatting with GPT. Users can sign up for an account, ask questions or provide prompts, receive AI-generated feedback from the OpenAI API, retrieve previous chat sessions tied to their accounts, and log out, all from the comfort of their terminal.
-
-#### Future Plans
-As of now, PyCli-GPT's primary goal is to inspire and educate. There are no specific future plans for the project other than sparking an interest in coding conversations among those who are curious about the world of software engineering and AI.
-
-## Getting Started
+## Usage
 
 ***This project is meant for you to run locally on your own computer*** 
 
@@ -48,6 +39,8 @@ To use this application, you will need to obtain a ***paid*** API key from OpenA
 Learn more about OpenAI's API billing here: [OpenAI Pricing](https://openai.com/pricing)
 
 This project utilizes the [GPT-3.5 Turbo](https://openai.com/pricing#:~:text=%C2%A0/%201K%20tokens-,GPT%2D3.5%20Turbo,-GPT%2D3.5%20Turbo) model.
+
+## Getting Started
 
 #### Signing Up for OpenAI API Paid Account
 
@@ -79,21 +72,9 @@ Copy your new API key and paste it somewhere safe. We will be using it in the In
 
 <img width="560" alt="Screenshot 2023-09-28 at 12 11 31 AM" src="https://github.com/codetombomb/cli-gpt/assets/56778984/70a472ca-141a-4610-99aa-b6848fb243e2">
 
-
-
 ## Installation
 
 Fork and clone this repository onto your computer.
 
-
-### Usage
-
-### Configuration
-
-### Examples
-
-### Contributing
-
-### License
 
 
