@@ -65,13 +65,7 @@ Click on the "Start payment plan" button and select the "Individual" option:
 
 Fill out the credit card form and submit.
 
-## Installation
-
-Fork and clone this repository onto your computer.
-
-
-
-
+#### Generating a new API key
 
 Click on the "View API Keys" option in the dropdown. Then, click on the "Create new secret key" button:
 
@@ -81,11 +75,15 @@ Name your new API key:
 
 <img width="572" alt="Screenshot 2023-09-28 at 12 10 40 AM" src="https://github.com/codetombomb/cli-gpt/assets/56778984/a15df459-4d84-4c21-b093-b25925c16968">
 
-Copy your new API key:
+Copy your new API key and paste it somewhere safe. We will be using it in the Installation section:
 
 <img width="560" alt="Screenshot 2023-09-28 at 12 11 31 AM" src="https://github.com/codetombomb/cli-gpt/assets/56778984/70a472ca-141a-4610-99aa-b6848fb243e2">
 
 
+
+## Installation
+
+Fork and clone this repository onto your computer.
 
 
 ### Usage
