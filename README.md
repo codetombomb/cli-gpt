@@ -5,17 +5,6 @@
 
 https://github.com/codetombomb/cli-gpt/assets/56778984/52e7a8c6-42d0-4795-8f45-e230a1c00c86
 
-## Table of Contents
-1. [Introduction](https://github.com/codetombomb/cli-gpt/main/README.md#introduction)
-2. [Features](https://github.com/codetombomb/cli-gpt/edit/main/README.md#features)
-3. [Installation](https://github.com/codetombomb/cli-gpt/edit/main/README.md#installation)
-4. [Usage](https://github.com/codetombomb/cli-gpt/edit/main/README.md#usage)
-5. [Configuration](https://github.com/codetombomb/cli-gpt/edit/main/README.md#configuration)
-6. [Examples](https://github.com/codetombomb/cli-gpt/edit/main/README.md#examples)
-7. [Contributing](https://github.com/codetombomb/cli-gpt/edit/main/README.md#contributing)
-8. [License](https://github.com/codetombomb/cli-gpt/edit/main/README.md#license)
-
-
 ## Introduction
 
 PyCli-GPT is a Python CLI works like [Chat-GPT](https://chat.openai.com) and is an application that provides helpful information, answer questions, and assist users with various tasks using the power of OpenAI's GPT (Generative Pre-trained Transformer) technology. Whether you need information, creative ideas, or assistance with specific tasks, PyCli-GPT is here to help, all within the familiar confines of your terminal.
@@ -74,7 +63,10 @@ Copy your new API key and paste it somewhere safe. We will be using it in the In
 
 ## Installation
 
-Fork and clone this repository onto your computer.
+This project uses Python version 3.8.13. 
+
+1. Fork and clone this repository onto your computer.
+2. Create a 
 
 
 
