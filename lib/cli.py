@@ -53,8 +53,8 @@ class Cli():
         
     def login(self):
         username = self.collect_data("What is your username?")
-        if User.find_by(username=username):
-            user = User.find_by(username=username)
+        user = User.find_by(username=username)
+        if user:
             password = self.collect_data("What is your password?", isPassword=True)
             if user.password == password:
                 self.current_user = user
@@ -62,6 +62,12 @@ class Cli():
             else:
                 print(red("That username or password was incorrect. Please try again."))
                 return self.welcome()
+        else:
+            print(str(red("Cannot find user with that username.")))
+            print("Please try again")
+            time.sleep(2)
+            self.clear(40)
+            return self.start()
                 
 
     def main_menu(self):
