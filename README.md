@@ -66,7 +66,13 @@ Copy your new API key and paste it somewhere safe. We will be using it in the In
 This project uses Python version 3.8.13. 
 
 1. Fork and clone this repository onto your computer.
-2. Create a 
+2. In the root directory, create a .env file and add the following line: OPENAI_API_KEY=REPLACE_WITH_YOUR_OPENAI_API_KEY
+3. In the terminal, run: `pipenv install && pipenv shell`
+4. `cd` into the `lib` directory and run `alembic upgrade head`
+
+## Running the app
+
+- In the `lib` directory, run: `python cli.py`
 
 
 
